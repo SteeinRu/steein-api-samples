@@ -28,7 +28,7 @@ if (!isset($_GET['code']))
         $user = $provider->getResourceOwner($token);
 
         // $user->get...();
-        echo $user->getAvatarUrl().'<br />';
+        echo $user->getDisplayName().'<br />';
         echo $user->getFirstName().'<br />';
     } catch (Exception $e) {
         exit('Что та пошло не так');
