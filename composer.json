@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "steein/oauth2-steein": "v1.0",
+    "steein/oauth2-steein": "v1.1",
     "steein/steein-sdk": "1.1.0"
   }
 }
