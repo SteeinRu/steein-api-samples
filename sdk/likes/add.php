@@ -1,5 +1,5 @@
 <?php
-include_once '../vendor/autoload.php';
+include_once '../../vendor/autoload.php';
 
 $config = [
     'client_id'                 =>      '{client_id}',
@@ -9,11 +9,12 @@ $config = [
 
 $steein = new \Steein\SDK\Steein($config);
 $steein->setDefaultAccessToken('{access_token}');
-$get = $steein->get('/posts/show/1');
-$post = $get->getPostModel();
 
-echo $post->getId();
 
-echo '<pre>';
-    print_r($post->all());
-echo '</pre>';
+$response = $steein->get('/likes/add',[
+    'item_id' => 1,
+    'type' => 'post'
+]);
+
+$add = $response->getDecodedBody();
+print_r($add);

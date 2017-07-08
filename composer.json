@@ -1,0 +1,16 @@
+{
+  "name": "steein/steein-api-samples",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "steein/oauth2-steein": "v1.0",
+    "steein/steein-sdk": "1.1.0"
+  }
+}

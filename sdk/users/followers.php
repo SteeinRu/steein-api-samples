@@ -1,5 +1,5 @@
 <?php
-include_once '../vendor/autoload.php';
+include_once '../../vendor/autoload.php';
 
 $config = [
     'client_id'                 =>      '{client_id}',
@@ -11,11 +11,8 @@ $steein = new \Steein\SDK\Steein($config);
 $steein->setDefaultAccessToken('{access_token}');
 
 
-$data = [
-    'post' => 'Привет @shamsudin, SDK #SteeinAPI включена'
-];
+$get = $steein->get('/users/followers',['id' => 1]);
+$followers = $get->getDecodedBody();
 
-$response = $steein->post('/posts/create', $data);
-$array = $response->getDecodedBody();
 
-var_dump($array);
+print_r($followers);

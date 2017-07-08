@@ -1,5 +1,5 @@
 <?php
-include_once '../vendor/autoload.php';
+include_once '../../vendor/autoload.php';
 
 $config = [
     'client_id'                 =>      '{client_id}',
@@ -11,17 +11,16 @@ $steein = new \Steein\SDK\Steein($config);
 $steein->setDefaultAccessToken('{access_token}');
 
 
-$get = $steein->get('/account/show');
-$user = $get->getUserModel();
+$get = $steein->get('/users/show'); //$steein->get('/users/show',['id' => 1]);
+$user = $get->getUserModel(); //$get->getDecodedBody()
 
 echo 'ID: '. $user->getId();
 echo '<br />';
-echo 'FullName'. $user->getFullName();
+echo 'FullName: '. $user->getDisplayName();
 echo '</br />';
-echo 'Email'. $user->getEmail();
+echo 'Email: '. $user->getEmail();
 echo '<br />';
-echo 'UserName'. $user->getUserName();
-
+echo 'UserName: '. $user->getUserName();
 
 echo '<br />';
 echo '-------------';

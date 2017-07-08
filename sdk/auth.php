@@ -12,7 +12,7 @@ $config = [
 $steein = new \Steein\SDK\Steein($config);
 
 $oauth = $steein->redirectOAuth();
-$scope = ['account','email','posts'];
+$scope = ['users','email','posts'];
 
 echo '<a href="'.$oauth->loginForm('{redirect_url}', $scope).'">Login Steein</a>';
 
@@ -24,7 +24,6 @@ if(isset($_GET['callback']))
     }catch(ResponseException $e) {
         die($e->getMessage());
     }
-
 
     echo $access_token->getValue();
 }
