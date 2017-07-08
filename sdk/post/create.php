@@ -12,27 +12,27 @@ $steein->setDefaultAccessToken('{access_token}');
 
 
 //Without a photo
-$create = $steein->get('/post/create', [
+$response = $steein->get('/post/create', [
     'message'   =>  'Hello @shamsudin'
 ]);
 
 //or With photo
-$response = $steein->post('/media/upload', [
+$response_media = $steein->post('/media/upload', [
     'media' => $steein->fileToUpload('{full path to the photo}'),
 ]);
-$media = $response->getDecodedBody();
+$media = $response_media->getDecodedBody();
 
 ////////
 ///
 ///
-$create = $steein->get('/post/create', [
+$response = $steein->get('/post/create', [
     'message'   =>  'Hello @shamsudin',
     'media'     =>  $media['finally']['media_id']
 ]);
 
 // Or just a photo
-$create = $steein->get('/post/create', [
+$response = $steein->get('/post/create', [
     'media'     =>  $media['finally']['media_id']
 ]);
 
-$user = $get->getDecodedBody();
+$create = $response->getDecodedBody();
